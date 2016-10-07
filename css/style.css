@@ -6,7 +6,7 @@ h1  {
   color: white;
   font-weight: bold;
   font-family: sans-serif;
-  text-align: center; 
+  text-align: center;
 }
 
 .square {
@@ -20,4 +20,8 @@ h1  {
 #container {
   margin: 0 auto;
   max-width: 600px;
+}
+
+span {
+  color: white; 
 }
