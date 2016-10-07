@@ -6,13 +6,17 @@ var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
-var resetbutton = document.querySelector("#reset");
+var resetButton = document.querySelector("#reset");
 
-resetButton.addEventListener("click", function() {
+resetButton.addEventListener("click", function(){
   //generate all new colors
+  colors = generateRandomColors(6);
   //pick a new random color from array
-  //chnage color of squares
-})
+  pickedColor = pickColor();
+  //change colorDisplay to match picked color
+  colorDisplay.textContent = pickedColor;
+  //change color of squares
+});
 
 colorDisplay.textContent = pickedColor;
 
