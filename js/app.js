@@ -23,7 +23,7 @@ for(var i = 0; i < squares.length; i++) {
     if(clickedColor === pickedColor) {
       alert("correct!");
     } else {
-      alert("Wrong!"); 
+      this.style.background = "black";
     }
   });
 
