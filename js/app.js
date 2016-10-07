@@ -22,11 +22,20 @@ for(var i = 0; i < squares.length; i++) {
     var clickedColor = this.style.background;
     //compare color to PickedColor
     if(clickedColor === pickedColor) {
-      messageDisplay.textContent = "Correct"; 
+      messageDisplay.textContent = "Correct";
+      changeColors(clickedColor);
     } else {
       this.style.background = "black";
       messageDisplay.textContent = "Try Again"
     }
   });
 
+}
+
+function changeColors(color){
+  //loop through all squares
+  for(var i = 0; i < squares.length; i++){
+    //change each color to matach given color
+    squares[i].style.background = color;
+  }
 }
