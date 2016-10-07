@@ -20,6 +20,11 @@ for(var i = 0; i < squares.length; i++) {
     //grab color of clicked squares
     var clickedColor = this.style.background;
     //compare color to PickedColor
+    if(clickedColor === pickedColor) {
+      alert("correct!");
+    } else {
+      alert("Wrong!"); 
+    }
   });
 
 }
