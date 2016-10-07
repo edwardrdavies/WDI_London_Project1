@@ -22,7 +22,7 @@ for(var i = 0; i < squares.length; i++) {
     var clickedColor = this.style.background;
     //compare color to PickedColor
     if(clickedColor === pickedColor) {
-      alert("correct!");
+      messageDisplay.textContent = "Correct"; 
     } else {
       this.style.background = "black";
       messageDisplay.textContent = "Try Again"
