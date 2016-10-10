@@ -20,8 +20,9 @@ var easyBtn = document.querySelector("#easyBtn");
 //Step 1.10: Select Hard mode button option to begin its function
 var hardBtn = document.querySelector("#hardBtn");
 var numberOfSquares = 6;
-
-
+var score = 0;
+var scoreDisplay = document.querySelector("#scoreDisplay");
+var maxPoints = 60;
 //Step 2: Create click event for easy mode option
 
 easyBtn.addEventListener("click", function(){
@@ -30,6 +31,7 @@ easyBtn.addEventListener("click", function(){
   easyBtn.classList.add("selected");
 //Step 2.2: Select number of squares for easy mode - index starts from 0!
   numSquares = 2;
+  maxPoints =30;
 //Step 2.3: Select color of squares to generate random colors
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
@@ -52,6 +54,7 @@ hardBtn.addEventListener("click", function(){
   easyBtn.classList.remove("selected");
 //Step 3.2: Select number of squares for hard mode
   numSquares = 6;
+  maxPoints = 60;
 //Step 3.2: Select random colors to be generated
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
@@ -76,13 +79,13 @@ resetButton.addEventListener("click", function(){
   colorDisplay.textContent = pickedColor;
   //Step 4.4: Reset button to display new colors option
   this.textContent = "New Colors";
-
+  maxPoints = colors.length * 10;
   messageDisplay.textContent = "";
   //Step 4.5: Change color of squares
   for(var i = 0; i < squares.length; i++){
       squares[i].style.background = colors[i];
   }
-  //Step 4.6: background color in header to be reset to house style color
+  //Step 4.6: background color in header to be reset to house style
   h1.style.background = "steelblue";
 });
 
@@ -97,12 +100,16 @@ for(var i = 0; i < squares.length; i++) {
     //compare color to PickedColor
     if(clickedColor === pickedColor) {
       messageDisplay.textContent = "Correct";
+      score = maxPoints + score;
+      scoreDisplay.textContent = score;
       resetButton.textContent= "Play Again?"
       changeColors(clickedColor);
       h1.style.background = clickedColor;
     } else {
       this.style.background = "black";
       messageDisplay.textContent = "Try Again"
+      maxPoints = maxPoints -10;
+      console.log(maxPoints);
     }
   });
 
