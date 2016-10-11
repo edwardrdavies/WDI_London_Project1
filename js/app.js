@@ -26,6 +26,8 @@ var score = 0;
 var scoreDisplay = document.querySelector("#scoreDisplay");
 //Select no. of max points user recieves from selecting squares
 var maxPoints = 60;
+var audio = new Audio('correct.m4a');
+var audio1 = new Audio('wrong.m4a');
 
 //Create click event for easy mode option
 
@@ -108,6 +110,7 @@ for(var i = 0; i < squares.length; i++) {
     if(clickedColor === pickedColor) {
     //If correct color is picked, strip to display "Correct"
       messageDisplay.textContent = "Correct";
+      audio.play();
     //When correct add score to scoreboard
       score = maxPoints + score;
       scoreDisplay.textContent = score;
@@ -117,6 +120,7 @@ for(var i = 0; i < squares.length; i++) {
     } else {
       this.style.background = "black";
       messageDisplay.textContent = "Try Again"
+      audio1.play();
       maxPoints = maxPoints -10;
       console.log(maxPoints);
     }
