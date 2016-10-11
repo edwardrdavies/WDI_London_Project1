@@ -28,6 +28,8 @@ var scoreDisplay = document.querySelector("#scoreDisplay");
 var maxPoints = 60;
 var audio = new Audio('correct.m4a');
 var audio1 = new Audio('wrong.m4a');
+var audio2 = new Audio('guide.m4a');
+var audio3 = new Audio('button.m4a');
 
 //Create click event for easy mode option
 
@@ -39,6 +41,7 @@ easyBtn.addEventListener("click", function(){
   numSquares = 2;
 //Select max points from easy mode
   maxPoints =30;
+  audio3.play();
 //Select color of squares to generate random colors
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
@@ -63,6 +66,7 @@ hardBtn.addEventListener("click", function(){
   numSquares = 6;
 //Select max points for hard mode
   maxPoints = 60;
+  audio3.play();
 //Select random colors to be generated
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
@@ -96,6 +100,7 @@ resetButton.addEventListener("click", function(){
   }
   //background color in header to be reset to house style
   h1.style.background = "steelblue";
+  audio3.play(); 
 });
 
 colorDisplay.textContent = pickedColor;
@@ -173,7 +178,9 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
 btn.onclick = function() {
+    audio2.play();
     modal.style.display = "block";
+
 }
 
 // When the user clicks on <span> (x), close the modal
