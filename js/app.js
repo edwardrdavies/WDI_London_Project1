@@ -20,9 +20,13 @@ var easyBtn = document.querySelector("#easyBtn");
 //Step 1.10: Select Hard mode button option to begin its function
 var hardBtn = document.querySelector("#hardBtn");
 var numberOfSquares = 6;
+//Step 1.11: Set scoring variable
 var score = 0;
+//Step 1.12: Select variable for score to be displayed
 var scoreDisplay = document.querySelector("#scoreDisplay");
+//Step 1.13: Select no. of max points user recieves from selecting squares
 var maxPoints = 60;
+
 //Step 2: Create click event for easy mode option
 
 easyBtn.addEventListener("click", function(){
@@ -31,6 +35,7 @@ easyBtn.addEventListener("click", function(){
   easyBtn.classList.add("selected");
 //Step 2.2: Select number of squares for easy mode - index starts from 0!
   numSquares = 2;
+//Select max points from easy mode
   maxPoints =30;
 //Step 2.3: Select color of squares to generate random colors
   colors = generateRandomColors(numSquares);
@@ -54,6 +59,7 @@ hardBtn.addEventListener("click", function(){
   easyBtn.classList.remove("selected");
 //Step 3.2: Select number of squares for hard mode
   numSquares = 6;
+//Select max points for hard mode
   maxPoints = 60;
 //Step 3.2: Select random colors to be generated
   colors = generateRandomColors(numSquares);
@@ -79,6 +85,7 @@ resetButton.addEventListener("click", function(){
   colorDisplay.textContent = pickedColor;
   //Step 4.4: Reset button to display new colors option
   this.textContent = "New Colors";
+  //Sum to determine points system is in multiples of 10
   maxPoints = colors.length * 10;
   messageDisplay.textContent = "";
   //Step 4.5: Change color of squares
@@ -90,16 +97,18 @@ resetButton.addEventListener("click", function(){
 });
 
 colorDisplay.textContent = pickedColor;
-
+//Step 5: workings for functionality when user selects correct color
 for(var i = 0; i < squares.length; i++) {
   squares[i].style.background = colors[i];
-//add initial colors to squares
+//Step 5.1: Add initial colors to squares
   squares[i].addEventListener("click", function(){
-    //grab color of clicked squares
+    //Step 5.2: Grab color of clicked squares
     var clickedColor = this.style.background;
-    //compare color to PickedColor
+    //Step 5.3: Compare color to PickedColor
     if(clickedColor === pickedColor) {
+    //Step 5:4: If correct color is picked, strip to display "Correct"
       messageDisplay.textContent = "Correct";
+    //When correct add score to scoreboard 
       score = maxPoints + score;
       scoreDisplay.textContent = score;
       resetButton.textContent= "Play Again?"
